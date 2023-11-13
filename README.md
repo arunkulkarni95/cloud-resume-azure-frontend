@@ -1,39 +1,35 @@
-# Azure Cloud Resume Challenge
+# Azure Cloud Resume Challenge - Frontend
 
 ## About
-This repository contains the code and resources for my Azure Cloud Resume Challenge. The project includes a modern, responsive resume built with [technology stack], hosted on Azure, and leveraging Azure services such as Azure Functions, Azure Cosmos DB, and Azure CDN.
+This repository contains the frontend code for my Azure Cloud Resume Challenge. The website is designed to be a modern, responsive online resume, and it is automatically deployed to Azure Storage using GitHub Actions as part of the CI/CD process.
 
 ## Features
-- Modern web resume with a sleek design.
-- Integration with Azure services for dynamic content and analytics.
-- [Any other features...]
+- Sleek, responsive web resume.
+- Continuous Deployment with GitHub Actions to Azure Storage.
+- Integration with Azure CDN for content delivery.
 
 ## Technology Stack
-- Frontend: [e.g., HTML, CSS, JavaScript, React]
-- Backend: [e.g., Azure Functions, Python]
-- Database: [e.g., Azure Cosmos DB]
-- Hosting: [e.g., Azure Blob Storage, Azure CDN]
-
-## Project Structure
-Briefly describe the structure of your project here.
+- HTML/CSS/JavaScript
+- [Any other frontend frameworks/libraries you're using]
 
 ## Setup and Deployment
-Provide step-by-step instructions on how to set up and deploy the project.
+This project uses GitHub Actions for CI/CD, automatically deploying the website to Azure Storage upon code push to the main branch.
 
 ### Prerequisites
-List any prerequisites here (e.g., Azure account, Node.js installed, etc.).
+- Azure account with configured storage account and CDN.
+- GitHub account for CI/CD setup.
 
 ### Local Development
-Instructions for setting up a local development environment.
+Instructions for setting up a local development environment:
+1. Clone the repository.
+2. [Any specific steps, like `npm install`, etc.]
 
-### Deployment
-Steps to deploy the application on Azure.
+### GitHub Actions CI/CD
+- GitHub Actions are set up to deploy the website to Azure Storage.
+- Make sure to configure Azure credentials as GitHub secrets. **Do not** commit them directly in your code.
 
 ## Contributing
-Information on how others can contribute to the project (if applicable).
-
-## License
-Specify the license under which your project is released (if applicable).
+Feel free to fork the project for your own Azure Cloud Resume Challenge!
 
 ## Contact
 - **Name:** Arun Kulkarni

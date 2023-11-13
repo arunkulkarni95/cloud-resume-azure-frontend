@@ -1,0 +1,131 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    color: #333;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+.container {
+    width: 80%;
+    margin: auto;
+    overflow: hidden;
+    padding: 20px;
+}
+
+a {
+    color: #0275d8;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #01447e;
+}
+
+/* Header */
+.header h1 {
+    font-size: 36px;
+    margin-bottom: 5px;
+}
+
+.header p {
+    font-size: 20px;
+    color: #666;
+}
+
+.contact-info {
+    margin-bottom: 20px;
+    font-size: 16px;
+}
+
+/* Sections */
+section {
+    background: #fff;
+    padding: 15px;
+    margin-top: 15px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+section h2 {
+    border-bottom: 2px solid #0275d8;
+    color: #0275d8;
+    padding-bottom: 5px;
+    margin-bottom: 15px;
+}
+
+/* Skills and Education Sections */
+.skills ul, .education .education-entry, .projects .project-entry, .certifications .certification-entry {
+    list-style-type: none;
+    padding: 0;
+}
+
+.job, .education-entry, .project-entry, .certification-entry {
+    margin-bottom: 15px;
+}
+
+.job h3, .education-entry h3, .project-entry h3, .certification-entry h3 {
+    margin-top: 0;
+}
+
+.date, .institution {
+    font-style: italic;
+    color: #666;
+}
+
+.institution {
+    font-weight: bold;
+    color: #0275d8;
+}
+
+/* Projects and Certifications Sections */
+.projects .project-entry, .certifications .certification-entry {
+    border-bottom: 1px solid #eaeaea;
+    padding-bottom: 10px;
+}
+
+.projects .project-entry:last-child, .certifications .certification-entry:last-child {
+    border-bottom: none;
+}
+
+.projects .project-entry a, .certifications .certification-entry a {
+    display: inline-block;
+    margin-top: 5px;
+}
+
+/* Additional Information Section */
+.additional-info ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.additional-info ul li {
+    margin-bottom: 10px;
+}
+
+.additional-info ul li:last-child {
+    margin-bottom: 0;
+}
+
+/* Media Queries for Responsiveness */
+@media screen and (max-width: 768px) {
+    .container {
+        width: 95%;
+    }
+
+    .header h1 {
+        font-size: 28px;
+    }
+
+    .header p {
+        font-size: 18px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .contact-info {
+        font-size: 14px;
+    }
+}

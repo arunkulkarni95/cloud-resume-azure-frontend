@@ -10,30 +10,29 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout GitHub Action
-      uses: actions/checkout@v2
+      - name: Checkout GitHub Action
+        uses: actions/checkout@v2
 
-    - name: Login to Azure
-      uses: azure/login@v1
-      with:
-        creds: ${{ secrets.AZURE_CREDENTIALS }}
+      - name: Login to Azure
+        uses: azure/login@v1
+        with:
+          creds: ${{ secrets.AZURE_CREDENTIALS }}
 
-    - name: Insert Secrets into index.html
-      run: |
-        sed -i 's#%%AZURE_FUNCTION_URL%%#${{ secrets.AZURE_FUNCTION_URL }}#g' index.html
-        sed -i 's#%%AZURE_FUNCTION_KEY%%#${{ secrets.AZURE_FUNCTION_KEY }}#g' index.html
+      - name: Insert Secrets into index.html
+        run: |
+          sed -i 's#%%AZURE_FUNCTION_URL%%#${{ secrets.AZURE_FUNCTION_URL }}#g' index.html
+          sed -i 's#%%AZURE_FUNCTION_KEY%%#${{ secrets.AZURE_FUNCTION_KEY }}#g' index.html
 
-    - name: Deploy index.html to Azure Storage
-      uses: azure/CLI@v1
-      with:
-        creds: ${{ secrets.AZURE_CREDENTIALS }}
-        azcliversion: 2.0.72
-        inlineScript: |
-          az storage blob upload --file index.html --container-name \$web --name index.html --account-name cloudresume
+      - name: Deploy index.html to Azure Storage
+        uses: azure/CLI@v1
+        with:
+          azcliversion: 2.0.72
+          inlineScript: |
+            az storage blob upload --file index.html --container-name \$web --name index.html --account-name cloudresume
 
-    - name: Deploy style.css to Azure Storage
-      uses: azure/CLI@v1
-      with:
-        creds: ${{ secrets.AZURE_CREDENTIALS }}
-        inlineScript: |
-          az storage blob upload --file style.css --container-name \$web --name style.css --account-name cloudresume
+      - name: Deploy style.css to Azure Storage
+        uses: azure/CLI@v1
+        with:
+          azcliversion: 2.0.72
+          inlineScript: |
+            az storage blob upload --file style.css --container-name \$web --name style.css --account-name cloudresume

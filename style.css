@@ -109,6 +109,46 @@ section h2 {
     margin-bottom: 0;
 }
 
+/* Style for Visitor Counter */
+.visitor-counter {
+    display: inline-block;
+    background: #fff;
+    color: #666;
+    padding: 3px 6px;
+    border-radius: 5px;
+    font-size: 14px;
+    margin-left: 10px;
+}
+
+.visitor-counter #visitorCount {
+    font-weight: bold;
+}
+
+
+/* Footer Styles */
+.footer {
+    text-align: center;
+    padding: 20px 0;
+    margin-top: 30px;
+    background: #fff;
+    border-top: 1px solid #eaeaea;
+}
+
+.footer p {
+    font-size: 16px;
+    color: #666;
+}
+
+.footer a {
+    color: #0275d8;
+    text-decoration: underline;
+}
+
+.footer a:hover {
+    color: #01447e;
+}
+
+
 /* Media Queries for Responsiveness */
 @media screen and (max-width: 768px) {
     .container {

@@ -30,8 +30,8 @@ jobs:
           inlineScript: |
             az cdn endpoint purge --content-paths  "/*" --profile-name "arun-resume-cdn" --name "arun-resume-cdn" --resource-group "cloud-resume-challenge"
 
-  # Azure logout
-    - name: logout
-      run: |
-            az logout
-      if: always()
+    # Azure logout
+      - name: logout
+        run: |
+              az logout
+        if: always()

@@ -13,6 +13,11 @@ jobs:
       with:
           creds: ${{ secrets.AZURE_CREDENTIALS }}
 
+    - name: Insert Secrets into index.html
+        run: |
+          sed -i 's#%%AZURE_FUNCTION_URL%%#${{ secrets.AZURE_FUNCTION_URL }}#g' index.html
+          sed -i 's#%%AZURE_FUNCTION_KEY%%#${{ secrets.AZURE_FUNCTION_KEY }}#g' index.html
+
     - name: Upload to blob storage
       uses: azure/CLI@v1
       with:

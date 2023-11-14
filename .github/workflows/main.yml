@@ -18,9 +18,6 @@ jobs:
       with:
         creds: ${{ secrets.AZURE_CREDENTIALS }}
 
-    - name: Set Default Azure Subscription
-      run: az account set --subscription ${{ secrets.AZURE_SUB_ID }}
-
     - name: Insert Secrets into index.html
       run: |
         sed -i 's#%%AZURE_FUNCTION_URL%%#${{ secrets.AZURE_FUNCTION_URL }}#g' index.html
@@ -29,6 +26,7 @@ jobs:
     - name: Deploy index.html to Azure Storage
       uses: azure/CLI@v1
       with:
+        creds: ${{ secrets.AZURE_CREDENTIALS }}
         azcliversion: 2.0.72
         inlineScript: |
           az storage blob upload --file index.html --container-name \$web --name index.html --account-name cloudresume
@@ -36,5 +34,6 @@ jobs:
     - name: Deploy style.css to Azure Storage
       uses: azure/CLI@v1
       with:
+        creds: ${{ secrets.AZURE_CREDENTIALS }}
         inlineScript: |
           az storage blob upload --file style.css --container-name \$web --name style.css --account-name cloudresume

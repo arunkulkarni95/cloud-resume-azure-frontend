@@ -1,38 +1,37 @@
-name: Deploy to Azure Storage
+name: Blob storage website CI
 
 on:
-  push:
-    branches:
-      - main  # Set your default branch here
+    push:
+        branches: [ main ]
 
 jobs:
-  build-and-deploy:
+  build:
     runs-on: ubuntu-latest
-
     steps:
-      - name: Checkout GitHub Action
-        uses: actions/checkout@v2
-
-      - name: Login to Azure
-        uses: azure/login@v1
-        with:
-          creds: ${{ secrets.AZURE_CREDENTIALS }}
-
       - name: Insert Secrets into index.html
         run: |
           sed -i 's#%%AZURE_FUNCTION_URL%%#${{ secrets.AZURE_FUNCTION_URL }}#g' index.html
           sed -i 's#%%AZURE_FUNCTION_KEY%%#${{ secrets.AZURE_FUNCTION_KEY }}#g' index.html
 
-      - name: Deploy index.html to Azure Storage
-        uses: azure/CLI@v1
+      - name: GitHub Checkout
+      - uses: actions/checkout@v3
+      - uses: azure/login@v1
         with:
-          azcliversion: 2.0.72
-          inlineScript: |
-            az storage blob upload --file index.html --container-name \$web --name index.html --account-name cloudresume
+            creds: ${{ secrets.AZURE_CREDENTIALS }}
 
-      - name: Deploy style.css to Azure Storage
+      - name: Upload to blob storage
         uses: azure/CLI@v1
         with:
-          azcliversion: 2.0.72
           inlineScript: |
-            az storage blob upload --file style.css --container-name \$web --name style.css --account-name cloudresume
+              az storage blob upload-batch --account-name cloudresume --auth-mode key -d '$web' -s .
+      - name: Purge CDN endpoint
+        uses: azure/CLI@v1
+        with:
+          inlineScript: |
+            az cdn endpoint purge --content-paths  "/*" --profile-name "arun-resume-cdn" --name "arun-resume-cdn" --resource-group "cloud-resume-challenge"
+
+  # Azure logout
+    - name: logout
+      run: |
+            az logout
+      if: always()

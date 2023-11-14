@@ -159,12 +159,12 @@
             alert("Surprise! You're looking at it.");
         });
 
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', () => {
             console.log("Fetching and updating visitor count...");
             updateVisitorCount();
         });
 
-        async function updateVisitorCount() {
+        const updateVisitorCount = async () => {
             const functionKey = '%%AZURE_FUNCTION_KEY%%'; // Replace with your actual function key
             const azureFunctionUrl = '%%AZURE_FUNCTION_URL%%'; // Replace with your actual Azure Function URL
 

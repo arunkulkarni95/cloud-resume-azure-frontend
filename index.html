@@ -12,10 +12,10 @@
             <h1>Arun Kulkarni</h1>
             <p>Software Development Engineer</p>
             <div class="contact-info">
-                <span>Email: <a href="mailto:akulkar27@gmail.com">akulkar27@gmail.com</a></span> | 
+                <span>Email: <a href="mailto:akulkar27@gmail.com?subject=Let's%20Chat!">akulkar27@gmail.com</a></span> | 
                 <span>Phone: (240) 815-1805</span> | 
-                <span><a href="https://www.linkedin.com/in/arunkulkarni95/">LinkedIn</a></span> | 
-                <span><a href="https://github.com/arunkulkarni95">GitHub</a></span> | 
+                <span><a href="https://www.linkedin.com/in/arunkulkarni95/" target="_blank" rel="noopener noreferrer">LinkedIn</a></span> | 
+                <span><a href="https://github.com/arunkulkarni95" target="_blank" rel="noopener noreferrer">GitHub</a></span> | 
                 <!-- Visitor Counter in a mini box -->
                 <span class="visitor-counter">Visitors to this Site: <span id="visitorCount">...</span></span>
             </div>
@@ -112,12 +112,12 @@
             <div class="project-entry">
                 <h3>Finance App</h3>
                 <p>A Next.js/Flask application for financial data analysis.</p>
-                <a href="https://arunkulkarni.io" target="_blank">View Project</a>
+                <a href="https://arunkulkarni.io" target="_blank" rel="noopener noreferrer">View Project</a>
             </div>
             <div class="project-entry">
                 <h3>Azure Cloud Resume Challenge</h3>
                 <p>Interactive resume hosted at resume.arunkulkarni.io (In Progress).</p>
-                <a href="https://resume.arunkulkarni.io" target="_blank">View Project</a>
+                <a href="" id="this-page">View Project</a>
             </div>
             <div class="project-entry">
                 <h3>Future Project</h3>
@@ -129,11 +129,11 @@
             <h2>Certifications</h2>
             <div class="certification-entry">
                 <h3>AZ-900: Microsoft Azure Fundamentals</h3>
-                <a href="https://learn.microsoft.com/api/credentials/share/en-us/ArunKulkarni-0842/7099F82FAC32D4E6?sharingId=A338B0758FEB5BAD" target="_blank">View Certificate</a>
+                <a href="https://learn.microsoft.com/api/credentials/share/en-us/ArunKulkarni-0842/7099F82FAC32D4E6?sharingId=A338B0758FEB5BAD" target="_blank" rel="noopener noreferrer">View Certificate</a>
             </div>
             <div class="certification-entry">
                 <h3>AI-900: Microsoft Azure AI Fundamentals</h3>
-                <a href="https://learn.microsoft.com/api/credentials/share/en-us/ArunKulkarni-0842/653D523043AB20B4?sharingId=A338B0758FEB5BAD" target="_blank">View Certificate</a>
+                <a href="https://learn.microsoft.com/api/credentials/share/en-us/ArunKulkarni-0842/653D523043AB20B4?sharingId=A338B0758FEB5BAD" target="_blank" rel="noopener noreferrer">View Certificate</a>
             </div>
             <div class="certification-entry">
                 <h3>Pursuing AZ-204 and AI-102</h3>
@@ -141,7 +141,7 @@
         </section>      
         
         <section class="additional-info">
-            <h2>Additional Information</h2>
+            <h2>Additional Achievements</h2>
             <ul>
                 <li>Eagle Scout, Boy Scouts of America (2013)</li>
             </ul>
@@ -152,6 +152,11 @@
         <p>Inspired by the <a href="https://cloudresumechallenge.dev/" target="_blank">Cloud Resume Challenge</a>.</p>
     </footer>
     <script>
+        document.getElementById('this-page').addEventListener('click', (e) => {
+            e.preventDefault();
+            alert("Surprise! You're looking at it.");
+        });
+
         document.addEventListener('DOMContentLoaded', function() {
             console.log("Fetching and updating visitor count...");
             updateVisitorCount();

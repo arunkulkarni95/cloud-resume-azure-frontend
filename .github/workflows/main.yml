@@ -18,6 +18,9 @@ jobs:
       with:
         creds: ${{ secrets.AZURE_CREDENTIALS }}
 
+    - name: Set Default Azure Subscription
+      run: az account set --subscription ${{ secrets.AZURE_SUB_ID }}
+
     - name: Insert Secrets into index.html
       run: |
         sed -i 's#%%AZURE_FUNCTION_URL%%#${{ secrets.AZURE_FUNCTION_URL }}#g' index.html

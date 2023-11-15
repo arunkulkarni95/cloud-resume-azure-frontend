@@ -160,6 +160,11 @@
         });
 
         document.addEventListener('DOMContentLoaded', () => {
+            var allowedDomain = "resume.arunkulkarni.io";
+            if(window.location.hostname !== allowedDomain && window.location.href.startsWith('http')) {
+                window.location.href = "https://" + allowedDomain;
+            }
+            
             console.log("Fetching and updating visitor count...");
             updateVisitorCount();
         });
